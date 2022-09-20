@@ -1,0 +1,4 @@
+msvc/Debug/*
+*.user
+msvc/UnrealBuildConfigurator.args.json
+msvc/.vs/*

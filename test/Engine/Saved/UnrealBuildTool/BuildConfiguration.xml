@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
+	<BuildConfiguration>
+		<bAllowXGE>false</bAllowXGE>
+		<bAllowSNDBS>true</bAllowSNDBS>
+		<bShowXGEMonitor>false</bShowXGEMonitor>
+		<bAllowHybridExecutor>true</bAllowHybridExecutor>
+	</BuildConfiguration>
+</Configuration>
