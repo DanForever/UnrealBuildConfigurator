@@ -13,11 +13,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UnrealBuildConfigurator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\external\pugixml\src\pugixml.cpp">
       <Filter>PugiXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UnrealBuildConfigurator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

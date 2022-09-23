@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <IncludePath>I:\UnrealBuildConfigurator\external\pugixml\src;I:\UnrealBuildConfigurator\external\cli11;$(IncludePath)</IncludePath>
+    <SourcePath>I:\UnrealBuildConfigurator\external\pugixml\src;$(SourcePath)</SourcePath>
+    <OutDir>..\bin\$(PlatformShortName).$(Configuration)\</OutDir>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+</Project>
