@@ -1,0 +1,30 @@
+name: Verify
+
+on:
+  push:
+    paths:
+      - 'src/**'
+        'external/**'
+        'msvc/**'
+  workflow_dispatch:
+  
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: ./msvc\UnrealBuildConfigurator.sln
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        build-platform: ["Win32", "x64"]
+        build-configuration: ["Debug", "Release"]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build
+      run: msbuild /p:Configuration=${{ matrix.build-configuration }} /p:Platform=${{ matrix.build-platform }} ${{ env.SOLUTION_FILE_PATH }}
