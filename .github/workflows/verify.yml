@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'src/**'
-        'external/**'
-        'msvc/**'
+      - 'external/**'
+      - 'msvc/**'
   workflow_dispatch:
   
 env:
