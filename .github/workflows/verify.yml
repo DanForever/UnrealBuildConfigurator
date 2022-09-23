@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'src/**'
-        'external/**'
-        'msvc/**'
+      - 'external/**'
+      - 'msvc/**'
   workflow_dispatch:
   
 env:
@@ -23,8 +23,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Install MSBuild
-      uses: microsoft/setup-msbuild@v1.1
+    - uses: humbletim/vsdevenv-shell@v1
 
     - name: Build
+      shell: vsdevenv x64 bash {0}
       run: msbuild /p:Configuration=${{ matrix.build-configuration }} /p:Platform=${{ matrix.build-platform }} ${{ env.SOLUTION_FILE_PATH }}
