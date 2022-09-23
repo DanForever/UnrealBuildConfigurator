@@ -23,11 +23,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Setup MSVC Developer console
-      uses: ilammy/msvc-dev-cmd@v1
-      with:
-        arch: ${{ matrix.build-platform }}
-        vsversion: "2019"
+#    - name: Setup MSVC Developer console
+#      uses: ilammy/msvc-dev-cmd@v1
+#      with:
+#        arch: ${{ matrix.build-platform }}
+#        vsversion: "2019"
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Setup VS Dev Environment
+      uses: seanmiddleditch/gha-setup-vsdevenv@v4
 
     - name: Build
       run: msbuild /p:Configuration=${{ matrix.build-configuration }} /p:Platform=${{ matrix.build-platform }} ${{ env.SOLUTION_FILE_PATH }}
