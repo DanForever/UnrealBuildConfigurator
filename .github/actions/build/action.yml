@@ -1,0 +1,35 @@
+name: Build
+
+inputs:
+  platform:
+    required: true
+  configuration:
+    required: true
+  solution-path:
+    default: ./msvc\UnrealBuildConfigurator.sln
+
+outputs:
+  path-to-binary:
+    value: ${{ steps.store-binary-path.path-to-binary }}
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Setup VS Dev Environment
+      uses: seanmiddleditch/gha-setup-vsdevenv@v4
+
+    - name: Build
+      shell: pwsh
+      run: msbuild /p:Configuration=${{ inputs.configuration }} /p:Platform=${{ inputs.platform }} ${{ inputs.solution-path }}
+
+    - name: Store binary path
+      shell: pwsh
+      id: store-binary-path
+      run: |
+        echo "::set-output name=path-to-binary::./bin/${{ inputs.platform }}.${{ inputs.configuration }}\UnrealBuildConfigurator.exe"

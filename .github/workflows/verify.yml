@@ -1,4 +1,4 @@
-name: Verify
+name: Verify Build
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   
 env:
   # Path to the solution file relative to the root of the project.
-  SOLUTION_FILE_PATH: ./msvc\UnrealBuildConfigurator.sln
+  SOLUTION_FILE_PATH: .\msvc\UnrealBuildConfigurator.sln
 
 jobs:
   build:
@@ -20,23 +20,11 @@ jobs:
         build-platform: ["x86", "x64"]
         build-configuration: ["Debug", "Release"]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-#    - name: Setup MSVC Developer console
-#      uses: ilammy/msvc-dev-cmd@v1
-#      with:
-#        arch: ${{ matrix.build-platform }}
-#        vsversion: "2019"
-
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.1
-
-    - name: Setup VS Dev Environment
-      uses: seanmiddleditch/gha-setup-vsdevenv@v4
-
-    - run: dir
-    - run: dir msvc\
-
     - name: Build
-      run: msbuild /p:Configuration=${{ matrix.build-configuration }} /p:Platform=${{ matrix.build-platform }} ${{ env.SOLUTION_FILE_PATH }}
+      id: build
+      uses: ./.github/actions/build
+      with:
+        platform: ${{ matrix.build-platform }}
+        configuration: ${{ matrix.build-configuration }}
+        solution-path: ${{ env.SOLUTION_FILE_PATH }}
+        
