@@ -52,7 +52,7 @@ jobs:
     
     - name: Package
       run: |
-        Compress-Archive -Path ${{ steps.build.path-to-binary }} -DestinationPath ${{ UnrealBuildConfigurator }}.${{ matrix.build-platform }}.zip
+        Compress-Archive -Path ${{ steps.build.path-to-binary }} -DestinationPath UnrealBuildConfigurator.${{ matrix.build-platform }}.zip
     
     - name: Upload
       uses: actions/upload-release-asset@v1.0.1
