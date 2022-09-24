@@ -39,6 +39,9 @@ jobs:
         build-platform: ["x86", "x64"]
         build-configuration: ["Release"]
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Build
       id: build
       uses: ./.github/actions/build
