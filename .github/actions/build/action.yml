@@ -30,8 +30,8 @@ runs:
       id: store-binary-path
       run: |
         echo "::set-output name=path-to-binary::./bin/${{ inputs.platform }}.${{ inputs.configuration }}/UnrealBuildConfigurator.exe"
-     
-     - name: Display binary path:
-       shell: pwsh
-       run: |
-         echo ${{ steps.store-binary-path.path-to-binary }}
+
+    - name: Display binary path:
+      shell: pwsh
+      run: |
+        echo ${{ steps.store-binary-path.path-to-binary }}
