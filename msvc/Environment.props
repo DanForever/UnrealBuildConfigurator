@@ -2,8 +2,8 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <IncludePath>I:\UnrealBuildConfigurator\external\pugixml\src;I:\UnrealBuildConfigurator\external\cli11;$(IncludePath)</IncludePath>
-    <SourcePath>I:\UnrealBuildConfigurator\external\pugixml\src;$(SourcePath)</SourcePath>
+    <IncludePath>..\external\pugixml\src;..\external\cli11;$(IncludePath)</IncludePath>
+    <SourcePath>..\external\pugixml\src;$(SourcePath)</SourcePath>
     <OutDir>..\bin\$(PlatformShortName).$(Configuration)\</OutDir>
   </PropertyGroup>
 
