@@ -33,4 +33,5 @@ runs:
      
      - name: Display binary path:
        shell: pwsh
-       run: echo ${{ steps.store-binary-path.path-to-binary }}
+       run: |
+         echo ${{ steps.store-binary-path.path-to-binary }}
