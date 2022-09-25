@@ -10,7 +10,7 @@ inputs:
 
 outputs:
   path-to-binary:
-    value: ${{ steps.store-binary-path.path-to-binary }}
+    value: ${{ steps.store-binary-path.outputs.path-to-binary }}
 
 runs:
   using: composite
@@ -29,9 +29,9 @@ runs:
       shell: bash
       id: store-binary-path
       run: |
-        echo "::set-output name=path-to-binary1::$(echo ./bin/${{ inputs.platform }}.${{ inputs.configuration }}/UnrealBuildConfigurator.exe)"
+        echo "::set-output name=path-to-binary::$(echo ./bin/${{ inputs.platform }}.${{ inputs.configuration }}/UnrealBuildConfigurator.exe)"
 
     - name: Display binary path
       shell: bash
       run: |
-        echo "${{ steps.store-binary-path.path-to-binary1 }}"
+        echo "${{ steps.store-binary-path.outputs.path-to-binary }}"
