@@ -1,4 +1,4 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/DanForever/UnrealBuildConfigurator/Verify%20Build) ![GitHub all releases](https://img.shields.io/github/downloads/DanForever/UnrealBuildConfigurator/total) ![GitHub](https://img.shields.io/github/license/DanForever/UnrealBuildConfigurator)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/DanForever/UnrealBuildConfigurator/verify.yml?branch=main) ![GitHub all releases](https://img.shields.io/github/downloads/DanForever/UnrealBuildConfigurator/total) ![GitHub](https://img.shields.io/github/license/DanForever/UnrealBuildConfigurator)
 # UnrealBuildConfigurator
  Utility to conveniently modify settings in the Unreal BuildConfiguration.xml
 
